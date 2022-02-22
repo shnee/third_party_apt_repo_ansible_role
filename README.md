@@ -40,8 +40,7 @@ Install Role
 Create a yaml file with the following content.
 ```yml
 ---
-- src: "git+https://gitlab.mss.com/ANDSAS/ops/ansible/\
-        third_party_apt_repo_ansible_role.git"
+- src: git+https://github.com/shnee/third_party_apt_repo_ansible_role.git
   name: third_party_apt_repo
   version: master
 ```
