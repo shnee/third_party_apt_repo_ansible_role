@@ -55,7 +55,7 @@ Example Playbook
 
 ```yml
 - roles:
-    - role: install_via_3rd_party_apt_repo
+    - role:  third_party_apt_repo
       third_party_repo: |
         deb [arch=amd64] https://apt.releases.hashicorp.com focal main
       third_party_repo_key_url: https://apt.releases.hashicorp.com/gpg
