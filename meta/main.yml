@@ -1,0 +1,20 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: shnee
+  description: Install a third party packages from third party apt repos.
+
+  license: MIT
+
+  min_ansible_version: 2.1
+
+  platforms:
+    - name: Ubuntu
+      versions: [focal]
+
+  galaxy_tags:
+    - debian
+    - ubuntu
+    - packages
+    - apt

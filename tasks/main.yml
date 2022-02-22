@@ -1,0 +1,31 @@
+---
+- name: Add 3rd party apt repo and install 3rd party packages.
+  become: true
+  when: ansible_os_family == "Debian"
+  block:
+    - name: Install https apt dependencies.
+      ansible.builtin.package:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+        state: present
+
+    - name: Add GPG key to apt.
+      ansible.builtin.apt_key:
+        url: "{{ third_party_repo_key_url }}"
+        id: "{{ third_party_repo_key_fingerprint }}"
+        state: present
+
+    - name: Add third party repo to apt.
+      ansible.builtin.apt_repository:
+        repo: "{{ third_party_repo }}"
+        state: present
+        update_cache: true
+
+    # TODO add a step to pin versions.
+
+    - name: Install third party packages.
+      ansible.builtin.package:
+        name: "{{ packages }}"
+        state: present
